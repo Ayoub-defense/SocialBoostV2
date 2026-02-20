@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: socialboost-ai
+    runtime: node
+    rootDir: .
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: cd backend && node src/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: JWT_REFRESH_EXPIRE
+        value: 30d
+      - key: LEMONSQUEEZY_API_KEY
+        sync: false
+      - key: LS_STORE_ID
+        sync: false
+      - key: LS_VARIANT_STARTER
+        sync: false
+      - key: LS_VARIANT_PRO
+        sync: false
+      - key: LS_VARIANT_AGENCY
+        sync: false
+      - key: LS_WEBHOOK_SECRET
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
